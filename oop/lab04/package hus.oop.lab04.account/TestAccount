@@ -1,0 +1,29 @@
+package hus.oop.lab04.account;
+
+public class TestMain {
+    public static void main(String[] args){
+        // test constructor and toString()
+        Account acc1 = new Account("A101", "Tan Ah Teck", 88);
+        System.out.println(acc1);  // automatically implicit call to .toString()
+        Account acc2 = new Account("A102", "Kumar");   // default balance
+        System.out.println(acc2);
+
+        //test getters
+        System.out.println("ID: " + acc1.getId());
+        System.out.println("Name: " + acc1.getName());
+        System.out.println("Balance: " + acc1.getBalance());
+
+        // test credit() and debit()
+        acc1.credit(100);
+        System.out.println(acc1);
+        acc1.debit(50);
+        System.out.println(acc1);
+        acc1.debit(500);
+        System.out.println(acc1);
+
+        // test transfer()
+        acc1.transferTo(acc2, 100);
+        System.out.println(acc1);
+        System.out.println(acc2);
+    }
+}
