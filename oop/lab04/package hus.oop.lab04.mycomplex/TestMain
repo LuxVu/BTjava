@@ -1,0 +1,60 @@
+package hus.oop.lab04.mycomplex;
+
+import java.util.Scanner;
+
+public class TestMain {
+    public static void main(String[] args) {
+        // Enter input and simultaneously test constructor
+        System.out.print("Enter complex number 1 (real and imaginary part): ");
+        Scanner reader = new Scanner(System.in);
+        double real1 = reader.nextDouble();
+        double imag1 = reader.nextDouble();
+        MyComplex complex1 = new MyComplex(real1, imag1);
+        // 3 lines of code above could be insteaded by
+        // MyComplex complex1 = new MyComplex(reader.nextDouble(), reader.nextDouble());
+
+        System.out.print("Enter complex number 2 (real and imaginary part): ");
+        double real2 = reader.nextDouble();
+        double imag2 = reader.nextDouble();
+        MyComplex complex2 = new MyComplex(real2, imag2);
+
+        System.out.println();
+
+        // test isReal() and isImag() for complex2
+        System.out.println("Number 1 is: " + complex1);   // automatically call to toString() in an implicit way
+        if (complex1.isReal())
+            System.out.println(complex1 + " is a pure real number");
+        else
+            System.out.println(complex1 + " is NOT a pure real number");
+
+        if (complex1.isImag())
+            System.out.println(complex1 + " is a pure imaginary number");
+        else
+            System.out.println(complex1 + " is NOT a pure imaginary number");
+
+        System.out.println();
+
+        // test isReal() and isImag() for complex2
+        System.out.println("Number 2 is: " + complex2);
+        if (complex2.isReal())
+            System.out.println(complex2 + " is a pure real number");
+        else
+            System.out.println(complex2 + " is NOT a pure real number");
+
+        if (complex2.isImag())
+            System.out.println(complex2 + " is a pure imaginary number");
+        else
+            System.out.println(complex2 + " is NOT a pure imaginary number");
+
+        System.out.println();
+
+        // test equals(another MyComplex)
+        if (complex1.equals(complex1))
+            System.out.println(complex1 + " is equal to " + complex2);
+        else
+            System.out.println(complex1 + " is NOT equal to " + complex2);
+
+        // test addInto()
+        System.out.println(complex1 + " + " + complex2 + " = " + complex1.addInto(complex2));
+    }
+}
