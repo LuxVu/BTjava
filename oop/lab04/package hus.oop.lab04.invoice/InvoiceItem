@@ -1,0 +1,51 @@
+package hus.oop.lab04.invoice;
+
+public class InvoiceItem {
+    private String id;
+    private String description;
+    private int quantity;
+    private double unitPrice;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public double getUnitPrice() {
+        return unitPrice;
+    }
+
+    public double getTotal(){
+        return unitPrice * quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public void setUnitPrice(double unitPrice) {
+        this.unitPrice = unitPrice;
+    }
+
+    public InvoiceItem(String id, String descriptiom, int quantity, double unitPrice) {
+        this.id = id;
+        this.description = descriptiom;
+        this.quantity = quantity;
+        this.unitPrice = unitPrice;
+    }
+
+    @Override
+    public String toString(){
+        return "InvoiceItem[id = " + getId()
+        + ", desc = " + getDescription()
+           + ", qty = " + getQuantity()
+        + ", unitPrice = " + getUnitPrice() + "]";
+    }
+}
