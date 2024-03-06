@@ -1,0 +1,60 @@
+package hus.oop.lab04.polynomial;
+public class MyPolynomial {
+    private double[] coeffs;
+    public MyPolynomial(double... coeffs){
+        this.coeffs = coeffs;
+    }
+
+    public int getDegree(){
+        return coeffs.length;
+    }
+
+    public String toString(){
+        String result = "";
+        for (int i = coeffs.length - 1; i >= 0; i--)
+            if (i > 1)
+                result += String.valueOf(coeffs[i]) + "x^" + i + "+";
+        else
+            if (i == 1)
+                result += String.valueOf(coeffs[i]) + "x" + "+";
+            else
+                result += String.valueOf(coeffs[i]) ;
+
+        return result;
+    }
+
+    public double evaluate(double x){
+        double result = 0.0d;
+        for (int i = coeffs.length - 1; i >= 0; i--)
+            result += coeffs[i]*Math.pow(x, i);
+
+        return result;
+    }
+
+    public double[] getCoeffs(){
+        return coeffs;
+    }
+    public double getElement(MyPolynomial polynomialint, int i){
+        double arr[] = polynomialint.getCoeffs();
+        return coeffs[i];
+    }
+
+    public MyPolynomial add(MyPolynomial right){
+        int maxLength = Math.max(this.getDegree(), right.getDegree());
+        int minLength = Math.min(this.getDegree(), right.getDegree());
+
+        double[] result = new double[maxLength];
+        for (int i = 0; i < maxLength; i++)
+            if (i >= minLength)
+            {
+                if (maxLength == this.getDegree())
+                    result[i] = getElement(this, i);
+                else
+                    result[i] = getElement(right, i);
+            }
+            else result[i] = getElement(this, i);
+
+        return new MyPolynomial(result);
+    }
+}
+
