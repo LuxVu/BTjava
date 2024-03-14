@@ -1,0 +1,104 @@
+package hus.oop.lab05.thepolynomial;
+
+public class MyPolynomial {
+    private double[] coeffs;
+
+    public MyPolynomial(double... coeffs) {
+        this.coeffs = coeffs;
+    }
+
+    public int getDegree() {
+        return coeffs.length - 1;
+    }
+
+    public String toString() {
+        String result = "";
+        for (int i = coeffs.length - 1; i >= 0; i--)
+            if (i > 1)
+                result += String.valueOf(coeffs[i]) + "x^" + i + "+";
+            else if (i == 1)
+                result += String.valueOf(coeffs[i]) + "x" + "+";
+            else
+                result += String.valueOf(coeffs[i]);
+
+        return result;
+    }
+
+    public double evaluate(double x) {
+        double result = 0.0d;
+        double powX = 1;
+
+        for (int i = 0; i < coeffs.length; i++) {
+            result += coeffs[i] * powX;
+            powX = powX * x;
+        }
+        return result;
+    }
+
+    public double[] getCoeffs() {
+        return coeffs;
+    }
+
+    public double getElement(int i) {
+        if (i < 0 || i >= this.coeffs.length) {
+            return Double.MIN_VALUE;
+        }
+        return this.coeffs[i];
+    }
+
+    public void allocateMore(int length) {
+        if (this.coeffs.length >= length) {
+            return;
+        }
+        double[] newCoeffs = new double[length];
+        for (int i = 0; i < this.coeffs.length;  i++) {
+            newCoeffs[i] = this.coeffs[i];
+        }
+        this.coeffs = newCoeffs;
+    }
+    public void allocateMore() {
+        double[] newCoeffs = new double[this.coeffs.length * 2];
+        for (int i = 0; i < this.coeffs.length;  i++) {
+            newCoeffs[i] = this.coeffs[i];
+        }
+        this.coeffs = newCoeffs;
+    }
+    // 1.x^4 2x^3 3x^2 4x 5     // maxDegree = 4
+    //           -1x^2 5x 2     // minDegree = 2
+    public MyPolynomial add(MyPolynomial right) {
+        if (this.getDegree() < right.getDegree()) {
+            this.allocateMore(right.getDegree() + 1);
+        }
+
+        int maxDegree = Math.max(this.getDegree(), right.getDegree());
+        int minDegree = Math.min(this.getDegree(), right.getDegree());
+        for (int i = 0; i <= maxDegree; i++) {
+            if (i > minDegree) {
+                if (maxDegree == this.getDegree()) {
+                    this.coeffs[i] = this.getElement(i);
+                } else
+                    this.coeffs[i] = right.getElement(i);
+            } else {
+                this.coeffs[i] += right.getElement(i);
+            }
+        }
+        return this;
+    }
+
+    public MyPolynomial multiply (MyPolynomial right) {
+        // initialize an array that contains coeffs of multiplied polynomial
+        double[] multiArr = new double[this.coeffs.length + right.coeffs.length - 1];
+
+        for (int i = 0; i < this.coeffs.length; i++) {
+            for (int j = 0; j < right.coeffs.length; j++) {
+                multiArr[i + j] += this.coeffs[i] * right.coeffs[j];
+            }
+        }
+        this.allocateMore(this.coeffs.length + right.coeffs.length);
+        this.coeffs = multiArr;
+
+        return this;
+    }
+}
+
+
