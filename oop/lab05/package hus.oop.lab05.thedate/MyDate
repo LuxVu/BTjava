@@ -1,0 +1,139 @@
+package hus.oop.lab05.thedate;
+
+import hus.oop.lab05.thetime.MyTime;
+
+public class MyDate {
+    private int year;
+    private int month;
+    private int day;
+    public static final String[] MONTHS = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug",
+                                               "Sep", "Oct", "Nov", "Dec"};
+    public static final String[] DAYS = {"Monday", "Tuesday", "Wednesday", "Thurday",
+                                                         "Friday", "Saturday", "Sunday"};
+
+    public static final int[] DAYS_IN_MONTHS = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
+        this.month = month;
+    }
+
+    public int getDay() {
+        return day;
+    }
+
+    public void setDay(int day) {
+        this.day = day;
+    }
+
+    public void setDate(int year, int month, int day) {
+        this.year = year;
+        this.month = month;
+        this.day = day;
+    }
+
+    public MyDate(int year, int month, int day) {
+        this.year = year;
+        this.month = month;
+        this.day = day;
+    }
+
+
+    public boolean isLeapYear(int year) {
+        return ((year % 4 == 0) && (year % 100 != 0));
+    }
+
+    public boolean isValidDate(int year, int month, int day) {
+        if ((year >= 1 && year <= 9999) && (month >= 1 && month <= 12) && (day >= 1)) {
+            if (isLeapYear(year) && month == 2) {
+                if (DAYS_IN_MONTHS[month - 1] + 1 >= day) {
+                    return true;
+                }
+            } else {
+                if (DAYS_IN_MONTHS[month - 1] >= day) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public int getDayOfWeek(int year, int month, int day) {
+        return (day + ((153 * (month + 12 * ((14 - month) / 12) - 3) + 2) / 5) +
+                (365 * (year + 4800 - ((14 - month) / 12))) +
+                ((year + 4800 - ((14 - month) / 12)) / 4) -
+                ((year + 4800 - ((14 - month) / 12)) / 100) +
+                ((year + 4800 - ((14 - month) / 12)) / 400)  - 32045) % 7;
+    }
+
+    public String toString() {
+        return DAYS[getDayOfWeek(year, month, day)] + " " +
+                day + " " + MONTHS[month - 1] + " " + year;
+    }
+
+    public MyDate nextDay() {
+        if (day + 1 > DAYS_IN_MONTHS[month - 1]) {
+            if (month + 1 > 12) {
+                setDate(year + 1, 1, 1);
+            } else {
+                setDate(year, month + 1, month + 1);
+            }
+        } else {
+            setDay(day + 1);     // function day(month) doesn't exist
+        }
+        return this;
+    }
+
+    public MyDate nextMonth() {
+        if (month + 1 > 12) {
+            setDate(year + 1, 1, 1);
+        } else {
+            setDate(year, month + 1, month + 1);
+        }
+        return this;
+    }
+
+    public MyDate nextYear() {
+        setDate(year + 1, month, month);
+        return this;
+    }
+
+    public MyDate previousDay() {
+        if (day - 1 == 0) {
+            if (month - 1 == 0) {
+                setDate(year - 1, 12, 12);
+            } else {
+                setDate(year, month - 1, month - 1);
+            }
+        } else {
+            setDay(day - 1);
+        }
+        return this;
+    }
+
+    public MyDate previousMonth() {
+        if (month - 1 == 0) {
+            setDate(year - 1, 12, 12);
+        } else {
+            setDate(year, month - 1, month - 1);
+        }
+        return this;
+    }
+
+    public MyDate previousYear() {
+        setYear(year - 1);
+        return this;
+    }
+}
+
