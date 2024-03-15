@@ -3,24 +3,35 @@ package hus.oop.lab05.thedate;
 public class TestMyDate {
     public static void main (String[] args) {
         MyDate date1 = new MyDate(2012, 2, 28);
-        System.out.println(date1);    // Tuesday 28 Feb 2012
-        System.out.println(date1.nextDay());   // Wednesday 29 Feb 2012
-        System.out.println(date1.nextDay());    // Thurday 1 Mar 2012
-        System.out.println(date1.nextMonth());   // Sunday 1 Apr 2012
-        System.out.println(date1.nextYear());   // Monday 1 Apr 2013
+
+        System.out.println("1. " + date1);    // 1. Tuesday 28 Feb 2012
+        System.out.println("2. " + date1.nextDay());   // 2. Wednesday 29 Feb 2012
+        System.out.println("3. " + date1.nextDay());    // 3. Thursday 1 Mar 2012
+        System.out.println("4. " + date1.nextMonth());   // 4. Sunday 1 Apr 2012
+        System.out.println("5. " + date1.nextYear());   // 5. Monday 1 Apr 2013
 
         MyDate date2 = new MyDate(2012, 1, 2);
-        System.out.println(date2);     // Monday 2 Jan 2012
-        System.out.println(date2.previousDay());   // Sunday 1 Jan 2012
-        System.out.println(date2.previousDay());    // Saturday 31 Dec 2011
-        System.out.println(date2.previousMonth());    // Wednesday 30 Nov 2011
-        System.out.println(date2.previousYear());   // Tuesday 30 Nov 2010
+        System.out.println("6. " + date2);     // 6. Monday 2 Jan 2012
+        System.out.println("7. " + date2.previousDay());   // 7. Sunday 1 Jan 2012
+        System.out.println("8. " + date2.previousDay());    // 8. Saturday 31 Dec 2011
+        System.out.println("9. " + date2.previousMonth());    // 9. Wednesday 30 Nov 2011
+        System.out.println("10. " + date2.previousYear());   // 10. Tuesday 30 Nov 2010
 
         MyDate date3 = new MyDate(2012, 2, 29);
-        System.out.println(date3.previousYear());    // Monday 28 Feb 2011
+        System.out.println("11. " + date3.previousYear());    // 11. Monday 28 Feb 2011
 
-        MyDate date4 = new MyDate(2099, 11, 31); // notify the error
+        MyDate date4 = new MyDate(2099, 11, 31);
+        if (!MyDate.isValidDate(2099, 11, 31)) {
+            System.out.println("12. " + "Invalid year, month, or day!");
+        } else {
+            System.out.println("12. " + date4);
+        }
 
-        MyDate date5 = new MyDate(2011, 2, 29);  // notify the error
+        MyDate date5 = new MyDate(2011, 2, 28);
+        if (!MyDate.isValidDate(2011, 2, 28)) {
+            System.out.println("13. " + "Invalid year, month, or day!");
+        } else {
+            System.out.println("13. " + date5);
+        }
     }
 }
