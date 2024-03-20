@@ -1,0 +1,15 @@
+package hus.oop.lab06.personandsubclasses;
+
+public class TestDriver {
+    public static void main(String[] args) {
+        Person student = new Student("Nguyen Van A", "Ha Noi", "KHDL", 2, 100.1);
+        System.out.println(student.toString());
+
+        Person staff = new Staff("Nguyen Van B", "Ha Tay", "HUS", 100.2);
+        System.out.println(staff.toString());
+
+        student.setName("Nguyen Van AA");
+        System.out.println(student);
+
+    }
+}
