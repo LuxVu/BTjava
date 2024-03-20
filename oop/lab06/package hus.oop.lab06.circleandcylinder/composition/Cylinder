@@ -1,0 +1,72 @@
+package hus.oop.lab06.circleandcylinder.composition;
+
+public class Cylinder {
+    private Circle base;    // Circle base is an instance of Circle class
+    private double height;
+
+    // constructor with default color, radius and height
+    public Cylinder() {
+        base = new Circle();    // call the default constructor of Circle class
+        height = 1.0d;
+    }
+
+    public Cylinder(String color, double radius, double height) {
+        this.base.setColor(color);
+        this.base.setRadius(radius);
+        this.height = height;
+    }
+
+    public Cylinder(Circle base, double height) {
+        this.base = base;
+        this.height = height;
+    }
+
+    public Circle getBase() {
+        return base;
+    }
+
+    public void setBase(Circle base) {
+        this.base = base;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public void setColor(String color) {
+        this.base.setColor(color);
+    }
+
+    public void setRadius(double radius) {
+        this.base.setRadius(radius);
+    }
+
+    public String getColor() {
+        return this.base.getColor();
+    }
+
+    public double getRadius() {
+        return this.base.getRadius();
+    }
+
+    // getTotalArea of Cylinder
+    public double getArea() {
+        return 2 * this.base.getArea() + this.base.getPerimeter() * height;
+    }
+
+    public double getVolume() {
+        return this.base.getArea() * height;
+    }
+
+    @Override
+    public String toString() {
+        return "Cylinder[" +
+                "base=" + base +
+                ", height=" + height +
+                '[';
+    }
+}
