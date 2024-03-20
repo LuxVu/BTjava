@@ -1,0 +1,20 @@
+package hus.oop.lab06.pointandline;
+
+public class TestLine {
+    public static void main(String[] args) {
+        Line line1 = new Line(0, 0, 3, 4);
+        System.out.println(line1.toString());
+
+        Point p1 = new Point(0, 0);
+        Point p2 = new Point(2, 4);
+        Line line2 = new Line(p1, p2);
+        System.out.println(line2.toString());
+
+        line2.setEndX(3);
+        System.out.println("getBegin is: " + line2.getBegin());
+        System.out.println("Length of the line made by " + p1
+            + " and " + p2 + " is: " + line2.getLength());
+        System.out.println("Gradient in radians: " + line2.getGradient());
+    }
+}
+
