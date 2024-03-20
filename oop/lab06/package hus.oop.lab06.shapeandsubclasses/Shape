@@ -1,0 +1,40 @@
+package hus.oop.lab06.shapeandsubclasses;
+
+public class Shape {
+    private String color;
+    private boolean filled;
+
+    public java.lang.String getColor() {
+        return color;
+    }
+
+    public void setColor(java.lang.String color) {
+        this.color = color;
+    }
+
+    public boolean isFilled() {
+        return filled;
+    }
+
+    public void setFilled(boolean filled) {
+        this.filled = filled;
+    }
+
+    public Shape() {
+        this.color = "green";
+        this.filled = true;
+    }
+
+    public Shape(java.lang.String color, boolean filled) {
+        this.color = color;
+        this.filled = filled;
+    }
+
+    @java.lang.Override
+    public java.lang.String toString() {
+        return "Shape[" +
+                "color=" + color +
+                ", filled=" + filled +
+                ']';
+    }
+}
