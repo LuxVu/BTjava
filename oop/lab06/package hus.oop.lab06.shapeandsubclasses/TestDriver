@@ -1,0 +1,18 @@
+package hus.oop.lab06.shapeandsubclasses;
+
+public class TestDriver {
+    public static void main(String[] args) {
+        Shape circle = new Circle();
+        System.out.println(circle);
+        System.out.println("Area of circle is: " + ((Circle) circle).getArea());
+
+        Shape rectangle = new Rectangle("blue", true, 1.2d, 3.4d);
+        System.out.println(rectangle);
+        System.out.println("Perimeter of rectangle is: " + ((Rectangle)rectangle).getPerimeter());
+
+        Shape square = new Square();
+        ((Square) square).setSide(4.0d);
+        System.out.println(square);
+        System.out.println("Area of square is: " + ((Square) square).getArea());
+    }
+}
