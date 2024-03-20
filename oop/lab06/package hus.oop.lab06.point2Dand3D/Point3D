@@ -1,0 +1,40 @@
+package hus.oop.lab06.point2Dand3D;
+
+public class Point3D extends Point2D{
+    private float z;
+
+    public float getZ() {
+        return z;
+    }
+
+    public void setZ(float z) {
+        this.z = z;
+    }
+
+    public Point3D(float x, float y, float z) {
+        super(x, y);
+        this.z = z;
+    }
+
+    public Point3D() {
+        super();
+        this.z = 0.0f;
+    }
+    public float[] getXYZ() {
+        float[] result = new float[3];
+        result[0] = super.getX();
+        result[1] = super.getY();
+        result[2] = this.getZ();
+        return result;
+    }
+
+    public void setXYZ(float x, float y, float z) {
+        super.setXY(x, y);
+        this.setZ(z);
+    }
+
+    public String toString() {
+        return "(" + super.getX() + ","
+                + super.getY() + "," + this.getZ() + ")";
+    }
+}
