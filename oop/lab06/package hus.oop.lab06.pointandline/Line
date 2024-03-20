@@ -1,0 +1,96 @@
+package hus.oop.lab06.pointandline;
+
+public class Line {
+    // a line composes of two points (as instance variables)
+    private Point begin;
+    private Point end;
+
+    // constructors
+    public Line(Point begin, Point end) {
+        this.begin = begin;
+        this.end = end;
+    }
+
+    public Line(int beginX, int beginY, int endX, int endY) {
+        begin = new Point(beginX, beginY);
+        end = new Point(endX, endY);
+    }
+
+    public Point getBegin() {
+        return begin;
+    }
+
+
+    public void setBegin(Point begin) {
+        this.begin = begin;
+    }
+
+    public Point getEnd() {
+        return end;
+    }
+
+    public void setEnd(Point end) {
+        this.end = end;
+    }
+
+    public int getBeginX() {
+        return this.begin.getX();
+    }
+
+    public int getBeginY() {
+        return this.begin.getY();
+    }
+
+    public int getEndX() {
+        return this.end.getX();
+    }
+
+    public int getEndY() {
+        return this.end.getY();
+    }
+
+    public void setBeginX(int beginX) {
+        this.begin.setX(beginX);
+    }
+
+    public void setBeginY(int beginY) {
+        this.begin.setY(beginY);
+    }
+
+    public void setBeginXY(int beginX, int beginY) {
+        this.begin.setXY(beginX, beginY);
+    }
+
+    public void setEndX(int endX) {
+        this.end.setX(endX);
+    }
+
+    public void setEndY(int endY) {
+        this.end.setY(endY);
+    }
+
+    public void setEndXY(int endX, int endY) {
+        this.end.setXY(endX, endY);
+    }
+
+    // compute and get length of line
+    public double getGradient() {
+        double diffX = Math.toRadians(begin.getX() - end.getX());
+        double diffY = Math.toRadians(begin.getY() - end.getY());
+        return Math.atan2(diffY, diffX);
+    }
+
+    public double getLength() {
+        double diffX = begin.getX() - end.getX();
+        double diffY = begin.getY() - end.getY();
+        return Math.sqrt(diffX * diffX + diffY * diffY);
+    }
+
+    @Override
+    public String toString() {
+        return "Line(" +
+                "begin=" + begin +
+                ", end=" + end +
+                ')';
+    }
+}
