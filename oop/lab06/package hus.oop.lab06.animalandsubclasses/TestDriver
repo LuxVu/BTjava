@@ -1,0 +1,22 @@
+package hus.oop.lab06.animalandsubclasses;
+
+public class TestDriver {
+    public static void main(String[] args) {
+        Animal animal1 = new Animal("Dung");
+        System.out.println(animal1);
+
+        Animal mammal = new Mammal("ca heo");
+        System.out.println(mammal.toString());
+
+        Animal cat = new Cat("con meo con");
+        System.out.println(cat);
+        System.out.print("Cat greets: ");
+        ((Cat) cat).greets();
+
+        Animal dog1 = new Dog("con cho con 1");
+        Animal dog2 = new Dog("con cho con 2");
+        System.out.println(dog1.toString());
+        System.out.print("When dog1 see dog2: ");
+        ((Dog) dog1).greets((Dog) dog2);
+    }
+}
