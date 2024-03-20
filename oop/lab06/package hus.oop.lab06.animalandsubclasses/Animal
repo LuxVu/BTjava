@@ -1,0 +1,17 @@
+package hus.oop.lab06.animalandsubclasses;
+
+public class Animal {
+    private String name;
+
+    public Animal(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Animal[" +
+                "name=" + name  +
+                ']';
+    }
+
+}
