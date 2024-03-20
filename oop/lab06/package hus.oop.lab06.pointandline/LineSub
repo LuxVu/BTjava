@@ -1,0 +1,99 @@
+package hus.oop.lab06.pointandline;
+
+public class LineSub extends Point {
+    // a line needs two points: begin and end
+    // the begin point is inherited from its superclass Point
+    // private variables
+    Point end;      // Ending point
+
+    // constructors
+    public LineSub(int beginX, int beginY, int endX, int endY) {
+        super(beginX, beginY);                          // construct the begin Point
+        this.end = new Point(endX, endY);               // construct the end Point
+    }
+
+    public LineSub(Point begin, Point end) {
+        super(begin.getX(), begin.getY());
+        this.end = end;
+    }
+
+    // inherits methods getX() and getY() from superclass Point
+    public String toString() {
+        return "Line(begin=" + super.toString()     // try this.toString()?
+            + ", end=" + end.toString() + ")";
+    }
+
+    public Point getBegin() {
+        return new Point(super.getX(), super.getY());
+    }
+
+    public Point getEnd() {
+        return end;
+    }
+
+    public void setBegin(Point begin) {      // different from setBeginXY
+        super.setX(begin.getX());
+        super.setY(begin.getY());
+    }
+
+    public void setEnd(Point end) {
+        this.end = end;
+    }
+
+    public int getBeginX() {
+        return this.getX();      // both this. or super. are correct
+                                 // if "this,", we can get that cuz "this" inherits
+                                // Point class, so all the methods will be inherited
+                                // if "super", we can get that cuz getX() made from "super"
+    }
+
+    public int getBeginY() {
+        return super.getY();
+    }
+
+    public int getEndX() {
+        return this.end.getX();
+    }
+
+    public int getEndY() {
+        return this.end.getY();
+    }
+
+    public void setBeginX(int beginX) {
+        super.setX(beginX);
+    }
+
+    public void setBeginY(int beginY) {
+        super.setX(beginY);
+    }
+
+    public void setBeginXY(int beginX, int beginY) {
+        super.setXY(beginX, beginY);
+    }
+
+    public void setEndX(int endX) {
+        this.end.setX(endX);
+    }
+
+    public void setEndY(int endY) {
+        this.end.setY(endY);
+    }
+
+    public void setEndXY(int endX, int endY) {
+        this.end.setXY(endX, endY);
+    }
+
+    // length of the line
+    public double getLength() {
+        double diffX = this.end.getX() - super.getX();
+        double diffY = this.end.getY() - super.getY();
+        return Math.sqrt(diffX * diffX + diffY * diffY);
+    }
+
+    // gradient in radians
+    public double getGradient() {
+        double diffX = this.end.getX() - super.getX();
+        double diffY = this.end.getY() - super.getY();
+        return Math.atan2(diffY, diffX);
+    }
+}
