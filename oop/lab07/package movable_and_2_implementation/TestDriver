@@ -1,0 +1,15 @@
+package movable_and_2_implementation;
+
+public class TestDriver {
+    public static void main(String[] args) {
+        MovableCircle movableCircle = new MovableCircle(0, 0, 1, 2, 3);
+        System.out.println(movableCircle);
+        System.out.print("circle move up: ");
+        movableCircle.moveUp();
+        System.out.println(movableCircle);
+
+        System.out.print("circle move right: ");
+        movableCircle.moveRight();
+        System.out.println(movableCircle);
+    }
+}
