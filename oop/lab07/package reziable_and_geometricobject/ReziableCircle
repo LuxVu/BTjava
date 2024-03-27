@@ -1,0 +1,16 @@
+package reziable_and_geometricobject;
+
+public class ReziableCircle extends Circle implements Reziable {
+    public void resize(int percent) {
+        this.radius *= percent/100.0;
+    }
+
+    public String toString() {
+        return "ReziableCircle[" + super.toString()
+                + "]";
+    }
+
+    public ReziableCircle(double radius) {
+        super(radius);
+    }
+}
