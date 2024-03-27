@@ -1,0 +1,8 @@
+package movable_and_1_implementation;
+
+public interface Movable {
+    void moveUp();
+    void moveDown();
+    void moveLeft();
+    void moveRight();
+}
