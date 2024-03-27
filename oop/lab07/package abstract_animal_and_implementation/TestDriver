@@ -1,0 +1,32 @@
+package abstract_animal_and_implementation;
+
+public class TestDriver {
+    public static void main(String[] args) {
+        // test Cat class
+        Animal cat = new Cat("cat");
+        System.out.print("When cat bored: ");
+        cat.greets();
+
+        // test Dog class
+        Animal dog1 = new Dog("dog1");
+        Animal dog2 = new Dog("dog2");
+        System.out.print("When dog bored: "); 
+        dog1.greets();
+        System.out.print("When dog see an another dog: ");
+        if (!(dog1 instanceof Dog && dog2 instanceof  Dog)) {
+            System.out.println(dog1 + " or " + dog2 + " is not a Dog");
+        } else {
+            ((Dog) dog1).greets((Dog) dog2);
+        }
+
+        // test BigDog class
+        Animal bigdog1 = new BigDog("BigDog1");
+        Animal bigdog2 = new BigDog("BigDog2");
+        System.out.print("when two bigdog see each other: ");
+        if (!(bigdog1 instanceof  BigDog && bigdog2 instanceof BigDog)) {
+            System.out.println(bigdog1 + " or " + bigdog2 + " is not a BigDog");
+        } else {
+            ((BigDog) bigdog1).greets((BigDog) bigdog2);
+        }
+    }
+}
