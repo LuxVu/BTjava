@@ -1,0 +1,15 @@
+package geometric_object_and_implementation;
+
+public class TestDriver {
+    public static void main(String[] args) {
+        Circle circle1 = new Circle(2.0d);
+        System.out.println("Area of circle1: " + circle1.getArea());
+        System.out.println("Perimeter of circle1: " + circle1.getPerimeter());
+        System.out.println(circle1);
+
+        Rectangle rectangle1 = new Rectangle(2.0d, 3.0d);
+        System.out.println(rectangle1);
+        System.out.println("Area of rectangle1: " + rectangle1.getArea());
+        System.out.println("Perimeter of rectangle1: " + rectangle1.getPerimeter());
+    }
+}
