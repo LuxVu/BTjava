@@ -1,0 +1,5 @@
+package reziable_and_geometricobject;
+
+public interface Reziable {
+    void resize(int percent);
+}
