@@ -1,0 +1,13 @@
+package reziable_and_geometricobject;
+
+public class TestDriver {
+    public static void main(String[] args) {
+        ReziableCircle reziableCircle = new ReziableCircle(2.0d);
+        System.out.println(reziableCircle);
+        System.out.println("area of reziablecircle: " + reziableCircle.getArea());
+        System.out.println("perimeter of reziablecircle: " + reziableCircle.getPerimeter());
+        
+        reziableCircle.resize(50);
+        System.out.println("Area of reziablecircle after changed: " + reziableCircle.getArea());
+    }
+}
