@@ -1,0 +1,25 @@
+package geometric_object_and_implementation;
+
+public class Circle implements GeometricObject{
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @java.lang.Override
+    public java.lang.String toString() {
+        return "Circle[" +
+                "radius=" + radius +
+                ']';
+    }
+    @Override
+    public double getArea() {
+        return this.radius * this.radius * Math.PI;
+    }
+
+    @Override
+    public double getPerimeter() {
+        return this.radius * 2 * Math.PI;
+    }
+}
