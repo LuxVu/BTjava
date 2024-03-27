@@ -1,0 +1,27 @@
+package geometric_object_and_implementation;
+
+public class Rectangle implements GeometricObject{
+    private double width;
+    private double length;
+
+    public Rectangle(double width, double length) {
+        this.width = width;
+        this.length = length;
+    }
+
+    @java.lang.Override
+    public java.lang.String toString() {
+        return "Rectangle[" +
+                "width=" + width +
+                ", length=" + length +
+                ']';
+    }
+    @Override
+    public double getArea() {
+        return this.width * this.length;
+    }
+    @Override
+    public double getPerimeter() {
+        return 2 * (this.width + this.length);
+    }
+}
