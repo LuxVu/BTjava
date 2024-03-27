@@ -1,0 +1,25 @@
+package movable_and_3_implementation;
+
+public class TestDriver {
+    public static void main(String[] args) {
+        // test movable circle
+        movable_and_3_implementation.MovableCircle movableCircle = new MovableCircle(0, 0, 1, 2, 3);
+        System.out.println(movableCircle);
+        System.out.print("circle move up: ");
+        movableCircle.moveUp();
+        System.out.println(movableCircle);              // end of move up
+        System.out.print("circle move right: ");
+        movableCircle.moveRight();
+        System.out.println(movableCircle);              // end of move right
+
+        // test movable rectangle
+        MovableRectangle movableRectangle = new MovableRectangle(0,0,2,-2,1,1);
+        System.out.println(movableRectangle);
+        System.out.print("rectangle move left: ");
+        movableRectangle.moveLeft();
+        System.out.print(movableRectangle);             // end of move left
+        System.out.print("rectangle move down: ");
+        movableRectangle.moveDown();;
+        System.out.print(movableRectangle);             // end of move down
+    }
+}
