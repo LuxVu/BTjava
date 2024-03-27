@@ -1,0 +1,61 @@
+package abstract_shape_and_subclass;
+
+public class TestDriver {
+    public static void main(String[] args) {
+        Shape shape1 = new Circle(5.5, "red", false);   // upcast Circle to Shape
+        System.out.println(shape1);               // ver of Circle
+        System.out.println(shape1.getArea());
+        System.out.println(shape1.getPerimeter());
+        System.out.println(shape1.getColor());
+        System.out.println(shape1.isFilled());
+        System.out.println(((Circle) shape1).getRadius());    // Superclass doesn't have getRadius(), so we must be downcast like this
+
+        Circle circle1 = (Circle) shape1;    // downcast back to Circle
+        System.out.println(circle1);
+        System.out.println(circle1.getArea());
+        System.out.println(circle1.getPerimeter());
+        System.out.println(circle1.getColor());
+        System.out.println(circle1.isFilled());
+        System.out.println(circle1.getRadius());
+
+        // What if Shape shape2 = new Shape();?
+        // Ans: A compilation error will be thrown "abstract cannot be instantiated
+        // can be modify: Shape shape2 = new Circle();
+
+        Shape shape3 = new Rectangle(1.0d, 2.0d, "red", false); // upcast
+        System.out.println(shape3);
+        System.out.println(shape3.getArea());
+        System.out.println(shape3.getPerimeter());
+        System.out.println(shape3.getColor());
+        System.out.println(((Rectangle)shape3).getLength());
+
+        Rectangle rectangle1 = (Rectangle) shape3;      // downcast
+        System.out.println(rectangle1);
+        System.out.println(rectangle1.getArea());
+        System.out.println(rectangle1.getColor());
+        System.out.println(rectangle1.getLength());
+
+        Shape shape4 = new Square(6.6);             // upcast
+        System.out.println(shape4);
+        System.out.println(shape4.getArea());
+        System.out.println(shape4.getColor());
+        System.out.println(((Square)shape4).getSide());
+
+        // Take note that we downcast Shape shape4 to Rectangle
+        // which is a superclass of Square, instead of Square
+        Rectangle rectangle2 = (Rectangle) shape4;
+        System.out.println(rectangle2);
+        System.out.println(rectangle2.getArea());
+        System.out.println(rectangle2.getColor());
+        System.out.println(((Square)rectangle2).getSide());
+        System.out.println(rectangle2.getLength());
+
+        // downcast Rectangle rectangle2 to Square
+        Square square1 = (Square) rectangle2;
+        System.out.println(square1);
+        System.out.println(square1.getArea());
+        System.out.println(square1.getColor());
+        System.out.println(square1.getSide());
+        System.out.println(square1.getLength());
+    }
+}
