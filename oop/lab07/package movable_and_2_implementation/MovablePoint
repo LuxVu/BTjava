@@ -1,0 +1,43 @@
+package movable_and_2_implementation;
+
+public class MovablePoint implements movable_and_2_implementation.Movable {
+    int x;
+    int y;
+    int xSpeed;
+    int ySpeed;
+
+    public MovablePoint(int x, int y, int xSpeed, int ySpeed) {
+        this.x = x;
+        this.y = y;
+        this.xSpeed = xSpeed;
+        this.ySpeed = ySpeed;
+    }
+
+    @java.lang.Override
+    public java.lang.String toString() {
+        return "(" + x
+                + ", " + y
+                + ") speed=(" + xSpeed
+                + ", " + ySpeed + ")";
+    }
+
+    @Override
+    public void moveUp() {
+        this.y -= this.ySpeed;
+    }
+
+    @Override
+    public void moveDown() {
+        this.y += this.ySpeed;
+    }
+
+    @Override
+    public void moveLeft() {
+        this.x -= this.xSpeed;
+    }
+
+    @Override
+    public void moveRight() {
+        this.x += this.xSpeed;
+    }
+}
