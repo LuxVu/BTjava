@@ -1,0 +1,45 @@
+package hus.oop.comparator;
+
+import java.io.*;
+import java.util.*;
+public class Movie implements Comparable<Movie>{
+    private String name;
+    private double rating;
+    private int year;
+
+    // used to sort movies by year
+    public int compareTo(Movie movie) {
+        return this.year - movie.getYear();
+    }
+
+    // Constructor
+    public Movie(String name, double rating, int year) {
+        this.name = name;
+        this.rating = rating;
+        this.year = year;
+    }
+
+    public java.lang.String getName() {
+        return name;
+    }
+
+    public void setName(java.lang.String name) {
+        this.name = name;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+}
