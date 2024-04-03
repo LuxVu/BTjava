@@ -1,0 +1,139 @@
+package hus.oop.collections.set;
+
+import com.sun.source.tree.Tree;
+
+import javax.print.DocFlavor;
+import java.util.*;
+
+public class Sets {
+    // returning the intersection of  2 given sets
+    // without using lib funtions
+    public static Set<Integer> intersectionManual(Set<Integer> first, Set<Integer> second) {
+        Set<Integer> intersectionSet = new HashSet <Integer>();
+        for (Integer firstElem : first) {
+            for (Integer secondElem : second) {
+                if (firstElem == secondElem) {
+                    intersectionSet.add(firstElem);
+                }
+            }
+        }
+        return intersectionSet;
+    }
+
+    // returning the union of 2 given sets
+    // without using lib funtions
+    public static Set<Integer> unionManual(Set<Integer> first, Set<Integer> second) {
+        Set<Integer> unionSet = new HashSet<Integer>();
+        for (Integer element : first) {
+            unionSet.add(element);
+        }
+        for (Integer element : second) {
+            unionSet.add(element);
+        }
+        return unionSet;
+    }
+
+    // returning the intersection of 2 given sets (see retainAll())
+    public static Set<Integer> intersection(Set<Integer> first, Set<Integer> second) {
+        first.retainAll(second);
+        return first;
+    }
+
+    // returning the union og 2 given sets (see addAll())
+    public static Set<Integer> union(Set<Integer> first, Set<Integer> second) {
+        first.addAll(second);
+        return first;
+    }
+
+    // to transform a set into a list without duplicates
+    // note: collections can be created from another collection!
+    public static List<Integer> toList(Set<Integer> source) {
+        List<Integer> list = new ArrayList<>();
+        list.addAll(source);
+        return list;
+    }
+
+    // to remove duplicates from a list
+    // note well: collections can be created from another collections
+    public static List<Integer> removeDuplicates(List<Integer> source) {
+        Set<Integer> set = new HashSet<>();
+        set.addAll(source);
+        List<Integer> list = new ArrayList<>();
+        list.addAll(set);
+        return list;
+    }
+
+    // remove duplicates from a list without using the constructors trick seen above
+    public static List<Integer> removeDuplicatesManual(List<Integer> source) {
+        Collections.sort(source);
+        List<Integer> list = new ArrayList<>();
+        list.add(source.get(0));
+        for (int i = 1; i < source.size(); i++) {
+            if (source.get(i) != source.get(i-1)) {
+                list.add(source.get(i));
+            }
+        }
+        return list;
+    }
+
+    // accepting a string s
+    // returning the first recurring character
+    // for e.x: firstRecurringCharacter("abaco") --> a
+    public static String firstRecurringCharacter(String s) {
+        Set<Character> set = new HashSet<>();
+        for (int i = 0; i < s.length(); i++) {
+            char currentChar = s.charAt(i);
+            if (set.contains(currentChar)) {
+                return String.valueOf(currentChar);
+            } else {
+                set.add(s.charAt(i));
+            }
+        }
+        return null;
+    }
+
+    // accepting a string s
+    // returning a set comprising all recurring characters
+    // for ex: allRecurringChars("mamma") -> [m, a]
+    public static Set<Character> allRecurringChars(String s) {
+        Set<Character> setTemp = new HashSet<>();
+        Set<Character> resultSet = new HashSet<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            char currentChar = s.charAt(i);
+            if (setTemp.contains(currentChar)) {
+                resultSet.add(currentChar);
+            } else {
+                setTemp.add(s.charAt(i));
+            }
+        }
+        return resultSet;
+    }
+
+    // to transform a set into an array
+    public static int[] toArray(Set<Integer> source) {
+        int[] result = new int[source.size()];
+        int i = 0;
+        for (Integer number : source) {
+            result[i++] = number;
+        }
+        return result;
+    }
+
+    // to return the first item from a TreeSet
+    // Note well: use TreeSet specific methods
+    public static int getFirst(TreeSet<Integer> source) {
+        return source.first();
+    }
+
+    // to return the last item from a TreeSet
+    public static int getLast(TreeSet<Integer> source) {
+        return source.last();
+    }
+
+    // to get an element from a TreeSet
+    // which is strictly greater than a given element
+    public static int getGreater(TreeSet<Integer> source, int value) {
+        return source.higher(value);   // it will be return the smallest item which is strictly greater than value parameter
+    }
+}
