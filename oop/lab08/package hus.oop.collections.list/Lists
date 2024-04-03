@@ -1,0 +1,85 @@
+package hus.oop.collections.list;
+
+import java.util.*;
+
+public class Lists {
+    // to insert an element into a list at the beginning
+    public static void insertFirst(List<Integer> list, int value) {
+        list.add(0, value);
+    }
+
+    // to insert an element into a list at the end
+    public static void insertLast(List<Integer> list, int value) {
+        list.add(list.size() - 1, value);
+    }
+
+    // to replace the 3rd element of a list with a given value
+    public static void replace(List<Integer> list, int value) {
+        list.set(2, value);
+    }
+
+    // to remove the 3rd element from a list
+    public static void removeThird(List<Integer> list) {
+        list.remove(2);
+    }
+
+    // to remove the element "666" from a list
+    public static void removeEvil(List<Integer> list) {
+        list.remove("666");
+    }
+
+    // returning a List<Integer> containing the first 10 square numbers
+    public static List<Integer> generateSquare() {
+        List<Integer> squareNum = new ArrayList<>();
+        for (Integer element : squareNum) {
+            int sqrt = (int) Math.sqrt(element);
+            if (sqrt * sqrt == element) {
+                squareNum.add(element);
+            }
+        }
+        return squareNum;
+    }
+
+    // to verify if a list contains a certain value
+    public static boolean contains(List<Integer> list, int value) {
+        for (Integer element : list) {
+            if (element == value) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // to copy a list into another list (without using lib funtions)
+    // Note well: the target list must be emptied before the copy
+    public static void copy(List<Integer> source, List<Integer> target) {
+        for (Integer element : source) {
+            target.add(element);
+        }
+    }
+
+    // to reverse the elements of a list
+    public static void reverse(List<Integer> list) {
+        Collections.reverse(list);
+    }
+
+    // to reverse the elements of a list (without using lib funtions)
+    public static void reverseManual(List<Integer> list) {
+         List<Integer> listSub = new ArrayList<>();
+        for (int i = list.size() - 1; i >= 0; i--) {
+            listSub.add(list.get(i));
+        }
+        list = listSub;
+    }
+
+    // to insert the same element both at the
+    // beginning and the end the same LinkedList
+    // Note well: can use LinkedList specific methods
+    public static void insertBeginningEnd(LinkedList<Integer> list, int value) {
+        list.add(0, value);
+        list.add(list.size() - 1, value);
+    }
+
+}
+
+
