@@ -1,0 +1,67 @@
+package com.oop.collections.mylist;
+
+import java.util.*;
+
+public class MyArrayList extends MyAbstractList {
+    static final int INITIAL_SIZE = 16;
+    Object[] elements;
+    int size;
+
+    public MyArrayList() {
+        elements = new Object[INITIAL_SIZE];
+        size = 0;
+    }
+
+    void enlarge() {
+        Object[] temp = new Object[elements.length * 2];
+        System.arraycopy(elements, 0, temp, 0, elements.length);
+        elements = temp;
+    }
+
+    @Override
+    public void add(Object o) {
+        if (size >= elements.length - 1) {
+            enlarge();
+        }
+        elements[size++] = o;
+    }
+
+    @Override
+    public void add(Object o, int index) {
+        checkBoundaries(index, size);
+        if (size >= elements.length - 1) {
+            enlarge();
+        }
+        Object[] temp = new Object[elements.length];
+        int indexOfTemp = 0;
+        while (indexOfTemp != index && indexOfTemp < size) {
+            temp[indexOfTemp] = this.elements[indexOfTemp];
+            indexOfTemp++;
+        }
+        temp[indexOfTemp] = o;
+        System.arraycopy(elements, indexOfTemp, temp, indexOfTemp + 1, size - index);
+        size++;
+        elements = temp;
+    }
+
+    @Override
+    public Object get(int index) {
+        checkBoundaries(index, size);
+        return elements[index];
+    }
+
+    @Override
+    public void remove(int index) {
+        checkBoundaries(index, size);
+        Object[] temp = new Object[elements.length];
+        System.arraycopy(elements, 0, temp, 0, index++);
+        System.arraycopy(elements, index, temp, index, size - index);
+        elements = temp;
+        size--;
+    }
+
+    @Override
+    public int size() {
+        return this.size;
+    }
+}
