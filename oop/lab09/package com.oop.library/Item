@@ -1,0 +1,33 @@
+package com.oop.library;
+
+public class Item {
+    private String title;
+    private int year;
+
+    public java.lang.String getTitle() {
+        return title;
+    }
+
+    public void setTitle(java.lang.String title) {
+        this.title = title;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public Item(java.lang.String title, int year) {
+        this.title = title;
+        this.year = year;
+    }
+
+
+    public String toString() {
+        return "Item[title='" + this.title + '\''
+                + ", year=" + this.year + "]";
+    }
+}
