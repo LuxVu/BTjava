@@ -1,0 +1,20 @@
+package com.oop.library;
+
+import java.util.Date;
+
+public class Library {
+    Rent[] rents;
+    public Library(Rent[] rents) {
+        this.rents = rents;
+    }
+
+    public Rent getLongestRent() {
+        Rent longestRent = null;
+        for (Rent rent : rents) {
+            if (longestRent == null || rent.getEnd().compareTo(longestRent.getEnd()) > 0) {
+                longestRent = rent;
+            }
+        }
+        return longestRent;
+    }
+}
