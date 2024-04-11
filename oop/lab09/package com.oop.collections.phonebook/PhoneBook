@@ -1,0 +1,29 @@
+package com.oop.collections.phonebook;
+
+/*
+* interface representing a generic PhoneBook Implementing classes
+* must provide methods for inserting, deleting, searching persons
+* within the PhoneBook
+*/
+
+public interface PhoneBook {
+    void addPerson(Student p);
+
+    // Search a person within the PhoneBook BY NAME
+    // return the person found, null otherwise
+    Student searchByName(String name);
+
+
+    // Search a  person within the PhoneBook BY LASTNAME
+    // return the person found, null otherwise
+    Student searchByLastname(String lastname);
+
+
+    // Search a peron within the PhoneBook BY NUMBER
+    // return the person found, null otherwise
+    Student searchByNumber(String phone);
+
+
+    // Delete a person from his phone
+    void deleteByNumber(String phone);
+}
