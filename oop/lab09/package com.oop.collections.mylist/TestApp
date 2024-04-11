@@ -1,0 +1,27 @@
+package com.oop.collections.mylist;
+
+public class TestApp {
+    public static void main(String[] args) {
+        MyList list1 = new MyArrayList();
+        list1.add("a", 0);
+        list1.add("b");
+        list1.add("c", 0);
+        list1.add("c", 3);
+        list1.remove(3);
+        System.out.println(list1.size());
+        System.out.println(list1);
+
+        MyList myLinkedList = new MyLinkedList();
+        // Test adding elements to the LinkedList
+        myLinkedList.add(1);
+        myLinkedList.add(2);
+        myLinkedList.add(3);
+        System.out.println(myLinkedList.size()); // Output: 3
+        System.out.println(myLinkedList); // Output: [1, 2, 3]
+
+        // Test removing elements from the LinkedList
+        myLinkedList.remove(1);
+        System.out.println(myLinkedList.size()); // Output: 2
+        System.out.println(myLinkedList); // Output: [1, 3]
+    }
+}
