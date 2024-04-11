@@ -1,0 +1,47 @@
+package com.oop.collections.phonebook;
+
+import java.util.HashMap;
+
+public class PhoneBookMap implements PhoneBook {
+    HashMap<String, Student> phoneBook;
+
+    public PhoneBookMap() {
+        this.phoneBook = new HashMap<>();
+    }
+
+    // Use the phone number as key cuz it is unique
+    @Override
+    public void addPerson(Student p) {
+        phoneBook.put(p.getPhone(), p);
+    }
+
+    @Override
+    public Student searchByName(String name) {
+        for (Student student : phoneBook.values()) {
+            if (student.getName().equals(name)) {
+                return student;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Student searchByLastname(String lastname) {
+        for (Student student : phoneBook.values()) {
+            if (student.getLastname().equals(lastname)) {
+                return student;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Student searchByNumber(String phone) {
+        return phoneBook.get(phone);
+    }
+
+    @Override
+    public void deleteByNumber(String phone) {
+        phoneBook.remove(phone);
+    }
+}
