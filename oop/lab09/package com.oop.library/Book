@@ -1,0 +1,25 @@
+package com.oop.library;
+
+public class Book extends Item {
+    int pages;
+
+    int getPages() {
+        return pages;
+    }
+
+    public void setPages(int pages) {
+        this.pages = pages;
+    }
+
+    public Book(java.lang.String title, int year, int pages) {
+        super(title, year);
+        this.pages = pages;
+    }
+
+    @Override
+    public String toString() {
+        return "Book=[" + "pages=" + this.pages
+                + ", title='" + this.getTitle() + '\''
+                + ", year=" + this.getYear() + "]";
+    }
+}
