@@ -1,0 +1,101 @@
+package com.oop.collections.phonebook;
+
+import java.util.Objects;
+
+public class Student implements Comparable<Student> {
+    private String name;
+    private String lastname;
+    private String phone;
+    private double average;
+
+    public Student(String name, String lastname, String phone) {
+        this.name = name;
+        this.lastname = lastname;
+        this.phone = phone;
+    }
+
+    public Student(String name, String lastname, double average) {
+        this.name = name;
+        this.lastname = lastname;
+        this.average = average;
+    }
+
+    public Student(String name, String lastname, String phone, double average) {
+        this.name = name;
+        this.lastname = lastname;
+        this.phone = phone;
+        this.average = average;
+    } /* 3 kinds of constructors
+         1st is name, lastname, phone
+         2nd is name, lastname, average
+         3rd is name, lastname, phone, average
+        */
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public double getAverage() {
+        return average;
+    }
+
+    public void setAverage(double average) {
+        this.average = average;
+    } // getters and setters
+
+    @Override
+    public int compareTo(Student s) {
+        return Double.compare(this.average, s.getAverage());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, lastname, phone, average);
+    }
+
+    @Override
+    public String toString() {
+        return "Student[" +
+                "name='" + name + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", phone='" + phone + '\'' +
+                ", average=" + average +
+                ']';
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+
+        com.oop.collections.phonebook.Student student = (com.oop.collections.phonebook.Student) object;
+        return Double.compare(student.getAverage(), this.average) == 0
+                && Objects.equals(this.name, student.getName())
+                && Objects.equals(this.lastname, student.getLastname())
+                && Objects.equals(this.phone, student.getPhone());
+    }
+}
+
