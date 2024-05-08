@@ -1,0 +1,19 @@
+package adapter;
+
+// An adapter class lets you fit square pegs into round holes
+// it extends the adapter.RoundPeg class to let the adapter objects act as round pegs
+public class SquarePegAdapter extends RoundPeg {
+    private SquarePeg peg;
+
+    public SquarePegAdapter(SquarePeg peg) {
+        super(peg.getWidth() * Math.sqrt(2) / 2);
+        this.peg = peg;
+    }
+
+    @Override
+    public double getRadius() {
+        // The adapter pretends to be a round peg with a radius
+        // that could fit the square peg the adapter actually wraps
+        return peg.getWidth() * Math.sqrt(2) / 2;
+    }
+}
