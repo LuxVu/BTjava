@@ -1,0 +1,13 @@
+package singleton.database;
+
+public class DatabaseController {
+    public static void main(String args[]) {
+        Database db1 = Database.getInstance("ConnectionString1");
+        db1.query("SELECT * FROM table1");
+
+        Database db2 = Database.getInstance("ConnectionString2");
+        db2.query("SELECT * FROM table2");
+
+        // db1 and db2 are the same object
+    }
+}
