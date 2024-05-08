@@ -1,0 +1,21 @@
+package singleton.database;
+
+public class Database {
+    private static Database uniqueInstance;
+    private String connectionString;
+
+    private Database(String connectionString) {
+        this.connectionString = connectionString;
+    }
+
+    public static Database getInstance(String connectionString) {
+        if (uniqueInstance == null) {
+            uniqueInstance = new Database(connectionString);
+        }
+        return uniqueInstance;
+    }
+
+    public void query(String sql) {
+        // execute the query on the database
+    }
+}
