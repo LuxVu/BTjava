@@ -1,0 +1,20 @@
+package adapter;
+
+public class TestAdapter {
+    // client code
+    public static void main(String[] args) {
+        RoundHole roundHole = new RoundHole(5.0d);
+        RoundPeg roundPeg = new RoundPeg(5.0d);
+        System.out.println(roundHole.fits(roundPeg));   // true;
+
+        SquarePeg smallSquarePeg = new SquarePeg(5.0d);
+        SquarePeg largeSquarePeg = new SquarePeg(10.0d);
+       // roundHole.fits(smallSquarePeg);   /// this won't compile (incompatible types)
+
+        SquarePegAdapter smallSquarePegAdapter = new SquarePegAdapter(smallSquarePeg);
+        SquarePegAdapter largeSquarePegAdapter = new SquarePegAdapter(largeSquarePeg);
+
+        System.out.println(roundHole.fits(smallSquarePegAdapter));    // true
+        System.out.println(roundHole.fits(largeSquarePegAdapter));   // false
+    }
+}
