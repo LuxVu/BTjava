@@ -15,6 +15,6 @@ public class TestAdapter {
         SquarePegAdapter largeSquarePegAdapter = new SquarePegAdapter(largeSquarePeg);
 
         System.out.println(roundHole.fits(smallSquarePegAdapter));    // true
-        System.out.println(roundHole.fits(largeSquarePegAdapter));   // false
+        System.out.println(roundHole.fits(largeSquarePegAdapter));    // false
     }
 }
