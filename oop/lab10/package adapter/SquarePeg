@@ -1,0 +1,16 @@
+package adapter;
+
+public class SquarePeg {
+    private double width;
+
+    public SquarePeg(double width) {
+        this.width = width;
+    }
+
+    public SquarePeg() {
+        this.width = 0.0d;
+    }
+    public double getWidth() {
+        return width;
+    }
+}
