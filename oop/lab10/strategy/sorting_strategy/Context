@@ -1,0 +1,32 @@
+package strategy.sorting_strategy;
+
+public class Context {
+    private static Context instance;
+    private Sorter sorter;
+
+    // access modifier is private in order to follow be able to create an only object context(instance) belongs to Context class
+    private Context() {
+    }
+
+    public static Context getInstance() {
+        if (instance == null) {
+            instance = new Context();
+        }
+        return instance;
+    }
+    public void setSorter(Sorter sorter) {
+        this.sorter = sorter;
+    }
+
+    public Sorter getSorter() {
+        return sorter;
+    }
+
+    public void printArrWithSorter(int[] arr) {
+        this.sorter.printArr(arr);
+    }
+
+    public void sortArrWithSorter(int[] arr) {
+        this.sorter.sort(arr);
+    }
+}
