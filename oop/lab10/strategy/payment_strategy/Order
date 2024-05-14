@@ -1,0 +1,43 @@
+package strategy.payment_strategy;
+
+public class Order {
+    private static Order instance;
+    private int totalCost;
+    private boolean isClosed;
+
+    private Order() {
+        this.totalCost = 0;
+        this.isClosed = false;
+    }
+
+    public static Order getInstance() {
+        if (instance == null) {
+            instance = new Order();
+        }
+        return instance;
+    }
+
+    public void processOrderUsingPaypal(PayByPaypal paypal) {
+        paypal.collectPaymentDetails();
+    }
+
+    public void processOrderUsingCreditCard(PayByCreditCard creditCard) {
+        creditCard.collectPaymentDetails();
+    }
+
+    public int getTotalCost() {
+        return totalCost;
+    }
+
+    public void setTotalCost(int totalCost) {
+        this.totalCost = totalCost;
+    }
+
+    public boolean isClosed() {
+        return isClosed;
+    }
+
+    public void setClosed(boolean closed) {
+        isClosed = closed;
+    }
+}
