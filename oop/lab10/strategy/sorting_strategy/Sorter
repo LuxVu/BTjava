@@ -1,0 +1,6 @@
+package strategy.sorting_strategy;
+
+public interface Sorter {
+    void sort(int[] arr);
+    void printArr(int[] arr);
+}
