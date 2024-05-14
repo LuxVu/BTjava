@@ -1,0 +1,33 @@
+package strategy.sorting_strategy;
+import java.util.Random;
+
+public class Client {
+
+    public static void main(String[] args) {
+        int[] arr = new int[10];
+        for (int i = 0; i < 10; i++) {
+            arr[i] = new Random().nextInt(99 - 10) + 10;
+        }
+
+        Sorter bubbleSort = new BubbleSort();
+        Sorter selectionSort = new SelectionSort();
+        Sorter insertionSort = new InsertionSort();
+
+        Context context = Context.getInstance();
+        context.setSorter(bubbleSort);
+        context.sortArrWithSorter(arr);                 // work completely with context obj, not via an attribute or a behaviour of context obj
+                                                        // substitute for context.getSorter().sort(arr);
+        System.out.println("Sort descending by using BUBBLE SORT: ");
+        context.printArrWithSorter(arr);
+
+        context.setSorter(selectionSort);
+        context.sortArrWithSorter(arr);
+        System.out.println("Sort ascending by using SELECTION SORT: ");
+        context.printArrWithSorter(arr);
+
+        context.setSorter(insertionSort);
+        context.sortArrWithSorter(arr);
+        System.out.println("Sort ascengding by using INSERTION SORT: ");
+        context.printArrWithSorter(arr);
+    }
+}
