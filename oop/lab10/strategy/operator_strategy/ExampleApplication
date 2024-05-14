@@ -1,0 +1,28 @@
+package strategy.operator_strategy;
+import java.util.Scanner;
+
+public class ExampleApplication {
+    public static void main(String[] args) {
+        Context context = new Context();
+
+        Scanner scan = new Scanner(System.in);
+        int firstNumber = scan.nextInt();
+        int lastNumber = scan.nextInt();
+        String desiredAction = scan.next();
+
+        if (desiredAction.equalsIgnoreCase("addition")) {
+            context.setStrategy(new ConcreteStrategyAdd());
+        }
+
+        if (desiredAction.equalsIgnoreCase("subtraction")) {
+            context.setStrategy(new ConcreteStrategySubtract());
+        }
+
+        if (desiredAction.equalsIgnoreCase("multiplication")) {
+            context.setStrategy(new ConcreteStrategyMultiply());
+        }
+
+        int result = context.executeStrategy(firstNumber, lastNumber);
+        System.out.println(result);
+    }
+}
