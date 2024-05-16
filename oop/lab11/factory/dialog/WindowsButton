@@ -1,0 +1,16 @@
+package factory.dialog;
+
+// Concrete products provide various implementations of the product interface
+public class WindowsButton implements Button {
+    @Override
+    public void render() {
+        // Render a button in Windows style
+        System.out.print("Render a button in Windows style.\n");
+    }
+
+    @Override
+    public void onClick() {
+        // Bind a native OS click event
+        System.out.print("You called to native click event.\n");
+    }
+}
