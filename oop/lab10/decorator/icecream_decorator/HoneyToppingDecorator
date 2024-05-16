@@ -1,0 +1,19 @@
+package decorator.icecream_decorator;
+
+public class HoneyToppingDecorator extends ToppingDecorator {
+    IceCream iceCream;
+
+    @Override
+    public String getDescription() {
+        return this.iceCream.getDescription() + addTopping();
+    }
+
+    @Override
+    public String addTopping() {
+        return ", with honey topping";
+    }
+
+    public HoneyToppingDecorator(IceCream iceCream) {
+        this.iceCream = iceCream;
+    }
+}
