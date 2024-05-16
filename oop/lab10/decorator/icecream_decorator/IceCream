@@ -1,0 +1,5 @@
+package decorator.icecream_decorator;
+
+public interface IceCream {
+    String getDescription();
+}
