@@ -1,0 +1,14 @@
+package abstract_factory.shape;
+
+public class AbstractFactoryPatternDemo {
+
+    public static void main(String[] args) {
+        AbstractFactory factory = FactoryProducer.getFactory(true);
+        Shape shape = factory.getShape();
+        shape.draw();
+
+        factory = FactoryProducer.getFactory(false);
+        shape = factory.getShape();
+        shape.draw();
+    }
+}
