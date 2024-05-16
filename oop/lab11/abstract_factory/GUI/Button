@@ -1,0 +1,8 @@
+package abstract_factory.GUI;
+/*
+* Each distinct product of a product family should have a interface.
+* All variants of the product must implement this interface.
+*/
+public interface Button {
+    void paint();
+}
