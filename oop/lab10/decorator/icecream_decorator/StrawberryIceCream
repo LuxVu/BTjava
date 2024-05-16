@@ -1,0 +1,8 @@
+package decorator.icecream_decorator;
+
+public class StrawberryIceCream implements IceCream {
+    @Override
+    public String getDescription() {
+        return "Buy a strawberry ice cream";
+    }
+}
