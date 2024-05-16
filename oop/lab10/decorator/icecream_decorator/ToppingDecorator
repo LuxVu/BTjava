@@ -1,0 +1,14 @@
+package decorator.icecream_decorator;
+
+// extends/implements because it's just an ice cream but at "enhance" level
+public abstract class ToppingDecorator implements IceCream {
+//    private IceCream iceCream;     // composition because if want to add topping, there's MUST HAVE ice cream firstly
+//
+//    @Override
+//    public String getDescription() {
+//        return this.iceCream.getDescription();
+//    }
+
+
+    public abstract String addTopping();
+}
