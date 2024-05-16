@@ -1,0 +1,11 @@
+package factory.dialog;
+
+// Concrete creators override the factory method to change the
+// resulting product's type
+
+public class WindowsDialog extends Dialog {
+    @Override
+    public Button createButton() {
+        return new WindowsButton();
+    }
+}
