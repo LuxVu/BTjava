@@ -1,0 +1,15 @@
+package factory.dialog;
+
+public class HTMLButton implements Button {
+    @Override
+    public void render() {
+        // Return an HTML representation of a button
+        System.out.print("Return an HTML representation of a button.\n");
+    }
+
+    @Override
+    public void onClick() {
+        // Bind a web browser click event
+        System.out.print("Refer to something from a web browser click event.\n");
+    }
+}
