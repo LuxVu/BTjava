@@ -1,0 +1,21 @@
+package decorator.shape_decorator;
+
+public class RedShapeDecorator extends ShapeDecorator {
+
+    public RedShapeDecorator(Shape shape) {
+      this.shape = shape;
+    }
+
+    @Override
+    public void draw() {
+        System.out.print(", with red color");
+    }
+
+    // need to have this method to aggregate 'draw of shape', then 'draw of this decorator'
+    public void setRedBorder() {
+        this.shape.draw();
+        this.draw();
+        System.out.println();
+    }
+
+}
