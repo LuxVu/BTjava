@@ -1,0 +1,18 @@
+package factory.fruit;
+
+import java.lang.Exception;
+
+public class FruitFactory {
+    private Fruit fruit;
+
+    public static Fruit provideFruit(String typeFruit) throws Exception {
+        if (typeFruit.equalsIgnoreCase("apple")) {
+            return new Apple();
+        } else if (typeFruit.equalsIgnoreCase("banana")) {
+            return new Banana();
+        } else if (typeFruit.equalsIgnoreCase("orange")) {
+            return new Orange();
+        } else
+            throw new Exception("Factory have not produced this kind of juice!!");
+    }
+}
