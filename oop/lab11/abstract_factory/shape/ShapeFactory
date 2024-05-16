@@ -1,0 +1,9 @@
+package abstract_factory.shape;
+
+public class ShapeFactory extends AbstractFactory {
+
+    @Override
+    public Shape getShape() {
+        return new Rectangle();
+    }
+}
