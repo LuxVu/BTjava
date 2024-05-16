@@ -1,0 +1,29 @@
+package abstract_factory.GUI;
+
+/*
+ * The client code works with factories and products onlu through
+ * abstract types: GUIFactory, Button and CheckBox. This
+ * lets you pass any factory or product subclass to the client
+ * code without breaking it
+ * */
+public class App {
+    private GUIFactory factory;
+    private Button button;
+    private Checkbox checkbox;
+
+    public App(GUIFactory factory) {
+        this.factory = factory;
+    }
+
+
+    // An app obj can invoke indirectly all of tasks of a factory through this method
+    public void createUI() {
+        this.button = factory.createButton();
+        this.checkbox = factory.createCheckbox();
+    }
+
+    public void paint() {
+        button.paint();
+        checkbox.paint();
+    }
+}
