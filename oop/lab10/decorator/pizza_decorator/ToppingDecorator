@@ -1,0 +1,8 @@
+package decorator.pizza_decorator;
+
+public abstract class ToppingDecorator extends Pizza {   // extends cuz Topping is not sold separately, it's still a pizza, but
+                                                        // "enhance" version by topping
+    protected Pizza pizza;   // Pizza interface component for Topping cuz if want to Topping Decorator, must have Pizza first
+
+    public abstract String getDescription();
+}
