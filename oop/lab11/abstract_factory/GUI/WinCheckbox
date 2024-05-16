@@ -1,0 +1,8 @@
+package abstract_factory.GUI;
+
+public class WinCheckbox implements Checkbox {
+    @Override
+    public void paint() {
+        System.out.print("Render a checkbox in Window style.\n");
+    }
+}
