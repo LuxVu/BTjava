@@ -1,0 +1,8 @@
+package abstract_factory.GUI;
+
+public class MacButton implements Button {
+    @Override
+    public void paint() {
+        System.out.print("Render a button in macOS style.\n");
+    }
+}
