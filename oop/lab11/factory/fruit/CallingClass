@@ -1,0 +1,13 @@
+package factory.fruit;
+
+import java.util.Scanner;
+import java.lang.Exception;
+
+public class CallingClass {
+    public static void main(String[] args) throws Exception {
+        Scanner scan = new Scanner(System.in);
+        String typeFruit = scan.next();
+        Fruit fruit = FruitFactory.provideFruit(typeFruit);
+        fruit.produceJuice();
+    }
+}
