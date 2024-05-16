@@ -1,0 +1,20 @@
+package decorator.icecream_decorator;
+
+public class IceCreamStore {
+    public static void main(String[] args) {
+        IceCream iceCream;
+
+        // basic ice cream
+        iceCream = new ChocolateIceCream();
+        System.out.println(iceCream.getDescription());
+
+        // strawberry with honey topping
+        iceCream = new HoneyToppingDecorator(new StrawberryIceCream());
+        System.out.println(iceCream.getDescription());
+
+
+        // chocolate with honey and nuts topping simultaneously
+        iceCream = new NutsToppingDecorator(new HoneyToppingDecorator(new ChocolateIceCream()));
+        System.out.println(iceCream.getDescription());
+    }
+}
