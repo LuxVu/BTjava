@@ -1,0 +1,30 @@
+package factory.dialog;
+
+import java.util.Scanner;
+import java.lang.Exception;
+
+public class Application {
+    private static Dialog dialog;
+
+    // The application picks a creator's type depending on the
+    // current configuration or environment settings
+    public static void initialize() throws Exception {
+        Scanner scan = new Scanner(System.in);
+        String config = scan.next();
+        if (config.equalsIgnoreCase("Windows")) {
+            dialog = new WindowsDialog();
+        } else if (config.equalsIgnoreCase("Web")) {
+            dialog = new WebDialog();
+        } else
+            throw new Exception("Error! Unknown operating system.");
+    }
+
+    // The client code works with an instance of a concrete creator, although through
+    // its base interface. As long as the client keeps working with the creator via the
+    // base interface, you can pass it any creator's subclass
+
+    public static void main(String[] args) throws Exception {
+        initialize();
+        dialog.render();
+    }
+}
