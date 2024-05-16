@@ -1,0 +1,8 @@
+package factory.fruit;
+
+public class Orange implements Fruit {
+    @Override
+    public void produceJuice() {
+        System.out.print("Produce orange juice successfully.");
+    }
+}
