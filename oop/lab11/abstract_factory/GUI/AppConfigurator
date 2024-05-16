@@ -1,0 +1,28 @@
+package abstract_factory.GUI;
+import java.util.Scanner;
+import java.lang.Exception;
+
+/*
+The app picks the factory type depending on the current
+configuration or environment settings and creates it at runtime
+(usually at the initialization stage)
+*/
+
+public class AppConfigurator {
+    private static GUIFactory factory;
+    public static void main(String[] args) throws Exception {
+        Scanner scan = new Scanner(System.in);
+        String config = scan.next();
+
+        if (config.equalsIgnoreCase("window")) {
+            factory = new WinFactory();
+        } else if (config.equalsIgnoreCase("mac")) {
+            factory = new MacFactory();
+        } else
+            throw new Exception("Error! Unknown operating system!");
+
+        App app =  new App(factory);
+        app.createUI();
+        app.paint();
+    }
+}
