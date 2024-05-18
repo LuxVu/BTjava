@@ -1,0 +1,14 @@
+package observer;
+
+public class BinaryObserver extends Observer {
+    @Override
+    public void update() {
+        System.out.println("BinaryObserver : " + Integer.toBinaryString(this.subject.getState()));
+    }
+
+    public BinaryObserver(Subject subject) {
+        this.subject = subject;
+        subject.addObserver(this);              // addObserver in constructor of an Observer because once create it,
+                                                // it's automatically added into List<Observer> of subject
+    }
+}
