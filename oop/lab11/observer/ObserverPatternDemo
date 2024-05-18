@@ -1,0 +1,16 @@
+package observer;
+
+public class ObserverPatternDemo {
+    public static void main(String[] args) {
+        Subject subject = new ConcreteSubject();
+
+        // binaryObserver accept to receive notification from ConcreteSubject
+        Observer binaryObserver = new BinaryObserver(subject);
+        // setState for ConcreteSubject subject and thus binaryObserver received notification about changes
+        subject.setState(10);
+
+        Observer hexObserver = new HexaObserver(subject);
+        Observer octalObserver = new OctalObserver(subject);
+        subject.setState(20);
+    }
+}
