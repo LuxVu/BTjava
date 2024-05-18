@@ -1,0 +1,14 @@
+package observer;
+
+public class HexaObserver extends Observer {
+    @Override
+    public void update() {
+        System.out.println("HexaObserver: " + Integer.toHexString(this.subject.getState()));
+    }
+
+    public HexaObserver(Subject subject) {
+        this.subject = subject;
+        subject.addObserver(this);          // addObserver in constructor of an Observer because once create it,
+                                            // it's automatically added into List<Observer> of subject
+    }
+}
