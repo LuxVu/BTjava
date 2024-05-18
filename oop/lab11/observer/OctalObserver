@@ -1,0 +1,14 @@
+package observer;
+
+public class OctalObserver extends Observer {
+    @Override
+    public void update() {
+        System.out.println("OctalObserver: " + Integer.toOctalString(this.subject.getState()));
+    }
+
+    public OctalObserver(Subject subject) {
+        this.subject = subject;
+        subject.addObserver(this);                      // addObserver in constructor of an Observer because once create it,
+                                                        // it's automatically added into List<Observer> of subject
+    }
+}
