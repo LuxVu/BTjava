@@ -1,0 +1,10 @@
+package observer;
+
+public interface Subject {
+
+    int getState();
+    void setState(int state);
+
+    void addObserver(Observer observer);
+    void notifyAllObservers();
+}
