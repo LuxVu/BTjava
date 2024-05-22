@@ -1,0 +1,66 @@
+package hus.oop.mylist;
+
+public class TestMyList {
+    private static Double[] data = {1.1, 2.7, 3.6, 4.5, 0.9};
+
+    public static void main(String[] args) {
+        /*
+         * TODO
+         * Chạy demo các hàm test.
+         */
+
+        testMyArrayList();
+        testMyLinkedList();
+    }
+
+    public static void testMyArrayList() {
+        /*
+         * TODO
+         * Tạo ra một list kiểu MyArrayList có các phần tử dữ liệu kiểu Double.
+         * Sử dụng BasicStatistic để tính các đại lượng thống kê cơ bản (max, min, kỳ vọng, phương sai).
+         * In ra terminal các thông tin về dữ liệu và các đại lượng thống kê.
+         */
+        hus.oop.mylist.MyArrayList arrayList = new hus.oop.mylist.MyArrayList();
+        arrayList.setData(data);
+
+        hus.oop.mylist.BasicStatistic statistic = new hus.oop.mylist.BasicStatistic(arrayList);
+        System.out.println("Original data: " + arrayList.toString());
+        arrayList.append(9.8);
+        System.out.println("Data after append into final arr: " + arrayList.toString());
+        arrayList.remove(2);
+        System.out.println("Data after remove the element with index 2: " + arrayList.toString());
+        System.out.println("\nStatistical quantities");
+        System.out.println("Min: " + statistic.min());
+        System.out.println("Max: " + statistic.max());
+        System.out.println("Variance: " + statistic.variance());
+        System.out.println("mean" + statistic.mean());
+
+        System.out.println("\n----------END OF TEST MYARRAYLIST----------\n");
+    }
+
+    public static void testMyLinkedList() {
+        /*
+         * TODO
+         * Tạo ra một list kiểu MyLinkedList có các phần tử dữ liệu kiểu Double.
+         * Sử dụng BasicStatistic để tính các đại lượng thống kê cơ bản (max, min, kỳ vọng, phương sai).
+         * In ra terminal các thông tin về dữ liệu và các đại lượng thống kê.
+         */
+        hus.oop.mylist.MyLinkedList linkedList = new hus.oop.mylist.MyLinkedList();
+        hus.oop.mylist.BasicStatistic basicStatistic = new hus.oop.mylist.BasicStatistic(linkedList);
+        linkedList.append(1.9);
+        linkedList.append(2.6);
+        linkedList.append(3.3);
+        linkedList.append(4.5);
+        System.out.println("Original data: " + linkedList.toString());
+        linkedList.insert(8.8, 2);
+        System.out.println("Data after insert into index 2: " + linkedList.toString());
+
+        System.out.println("\nStatistical quantities:");
+        System.out.println("Min: " + basicStatistic.min());
+        System.out.println("Max: " + basicStatistic.max());
+        System.out.println("Variance: " + basicStatistic.variance());
+        System.out.println("mean" + basicStatistic.mean());
+
+        System.out.println("\n----------END OF TEST MYLINKEDLIST----------\n");
+    }
+}
