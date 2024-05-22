@@ -1,0 +1,118 @@
+package hus.oop.mylist;
+
+public class MyLinkedList extends hus.oop.mylist.MyAbstractList {
+    private hus.oop.mylist.MyLinkedListNode head;
+    private int size;
+
+    /**
+     * Khởi tạo dữ liệu mặc định.
+     */
+    public MyLinkedList() {
+        /* TODO */
+        head = null;
+        size = 0;
+    }
+
+    /**
+     * Lấy kích thước của list.
+     * @return
+     */
+    @Override
+    public int size() {
+        /* TODO */
+        return size;
+    }
+
+    /**
+     * Lấy phần tử ở vị trí index trong list.
+     * @param index
+     * @return
+     */
+    @Override
+    public Object get(int index) {
+        /* TODO */
+        return getNodeByIndex(index).getPayload();
+    }
+
+    /**
+     * Xóa phần tử của list ở vị trí index.
+     * @param index
+     */
+
+    @Override
+    public void remove(int index) {
+        /* TODO */
+        if (index == 0) {
+            head = head.getNext();
+        } else {
+            hus.oop.mylist.MyLinkedListNode beforeNode = getNodeByIndex(index - 1);
+            beforeNode.setNext(beforeNode.getNext().getNext());
+            size--;
+        }
+    }
+
+    /**
+     * Thêm vào cuối list phần tử có dữ liệu payload.
+     * @param payload
+     */
+    @Override
+    public void append(Object payload) {
+        /* TODO */
+        insert(payload, size());
+    }
+
+    /**
+     * Thêm vào list phần tử có dữ liệu payload ở vị trí index.
+     * @param payload
+     * @param index
+     */
+    @Override
+    public void insert(Object payload, int index) {
+        /* TODO */
+        if (index < 0 || index > size()) {
+            throw new IndexOutOfBoundsException("Index out of bounds.");
+        } else {
+            hus.oop.mylist.MyLinkedListNode newNode = new hus.oop.mylist.MyLinkedListNode(payload);
+            if (index == 0) {
+                newNode.setNext(head);
+                head = newNode;
+            } else {
+                hus.oop.mylist.MyLinkedListNode beforeNode = getNodeByIndex(index - 1);
+                hus.oop.mylist.MyLinkedListNode currentNode = getNodeByIndex(index);
+                beforeNode.setNext(newNode);
+                newNode.setNext(currentNode);
+                size++;
+            }
+        }
+    }
+
+    /**
+     * Tạo iterator để cho phép duyệt qua các phần tử của list.
+     *
+     * @return
+     */
+    @Override
+    public hus.oop.mylist.MyIterator iterator() {
+        /* TODO */
+        return new hus.oop.mylist.MyLinkedListIterator(head);
+    }
+
+    /**
+     * Lấy node ở vị trí index.
+     * @param index
+     * @return
+     */
+    private hus.oop.mylist.MyLinkedListNode getNodeByIndex(int index) {
+        /* TODO */
+        if (index < 0 || index >= size()) {
+            throw new IndexOutOfBoundsException("Index out of bounds.");
+        } else {
+            hus.oop.mylist.MyLinkedListNode currentNode = head;
+            for (int i = 0; i < index; i++) {
+                currentNode = currentNode.getNext();
+            }
+
+            return currentNode;
+        }
+    }
+}
