@@ -1,0 +1,18 @@
+package hus.oop.mylist;
+
+public abstract class MyAbstractList implements hus.oop.mylist.MyList {
+    /**
+     * Mô tả dữ liệu của list.
+     * @return mô tả list theo định dạng [a1] [a2] [a3] ... [an]
+     */
+    @Override
+    public String toString() {
+        /* TODO */
+        StringBuffer sb = new StringBuffer();
+        while (iterator().hasNext()) {
+            sb.append("[").append(iterator().next()).append("]");
+        }
+
+        return String.valueOf(sb);
+    }
+}
